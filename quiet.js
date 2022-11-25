@@ -312,7 +312,7 @@ var Quiet = (function() {
         Module.ccall('free', null, ['pointer'], [opt]);
 
         if (opts.clampFrame === undefined) {
-            opts.clampFrame = true;
+            opts.clampFrame = false;
         }
 
         var frame_len;
@@ -719,6 +719,7 @@ var Quiet = (function() {
      */
     function receiver(opts) {
         var profile = opts.profile;
+        console.log(profile);
         var c_profiles, c_profile;
         if (typeof profile === 'object') {
             c_profiles = Module.intArrayFromString(JSON.stringify({"profile": profile}));
